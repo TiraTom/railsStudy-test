@@ -1,0 +1,32 @@
+<div class="users-show">
+  <div class="userInfo">
+    <div class="userImage">
+      <%= link_to user_path(@user.id) do %>
+        <% if @user.image.nil? %>
+          NO IMAGE
+        <% else %>
+          <%= image_tag @user.image, width: "140px", height:"160px" %>
+        <% end %>
+      <% end %>
+    </div>
+    <span>
+      <%= @user.name %>
+    </span>
+    <span class="lastLogin">
+      最終ログイン日：<%= current_user.current_sign_in_at.strftime("%Y-%m-%d %H:%M:%S") %>
+    </span>
+    <p>
+      <%= @user.profile %>
+    </p>
+  </div>
+  <div class="tweetInfo">
+    <% if @tweets.length == 0 %>
+      ツイートはありません
+    <% else %>
+      <% @tweets.each do |tweet| %>
+        <%= render 'tweets/eachTweet', tweet: tweet %>
+      <% end %>
+      <%= paginate @tweets %>
+    <% end %>
+  </div>
+</div>

@@ -7,8 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div>
+    <div class="header">
+      <span class="appName">
+        <%= link_to root_path do %>
+          Twitter
+        <% end %>
+      </span>
+      <% if user_signed_in? %>
+      <span class="search">
+        <%= search_form_for @q, url: root_path do |f| %>
+          <%= f.search_field :content_cont, placeholder: "tweetを検索" %>
+          <%= f.submit "検索", class: "btn btn-default" %>
+        <% end %>
+      </span>
+      <% end %>
+      <span>
+        <% if user_signed_in? %>
+          <%= link_to user_path(current_user.id) do %>
+            @<%= current_user.name %>
+          <% end %>
+          <%= link_to '設定変更', edit_user_registration_path %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'ログイン', new_user_session_path %>
+        <% end %>
+      </span>
+    </div>
+    <p class="notice"><%= notice %></p>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>

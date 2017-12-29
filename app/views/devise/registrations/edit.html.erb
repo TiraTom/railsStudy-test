@@ -1,0 +1,58 @@
+<div class="devise-edit">
+  <h2>設定変更</h2>
+  
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+  
+    <div class="form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
+  
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+  
+    <div class="form-group">
+      <%= f.label :password %><em><%= @minimum_password_length %> 文字以上で設定してください</em>
+      <i>(変更しない場合は空欄のままにしてください)</i><br />
+      <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
+      <% if @minimum_password_length %>
+        <br />
+      <% end %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "off" %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.label :current_password %> <i>(アカウント情報更新時には入力が必要です)</i><br />
+      <%= f.password_field :current_password, class: "form-control", autocomplete: "off" %>
+    </div>
+      
+    <div class="form-group">
+      <%= f.label :image %><br />
+      <% if @user.image.present? %>
+        <div class="userImage">
+            <%= @user.image %>
+        </div>
+      <% end %>
+      <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :profile %><br />
+    <%= f.text_area :profile, rows: 3 %>
+    </div>
+  
+  
+    <div class="actions">
+      <%= f.submit "登録", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  
+  <%= link_to "Back", :back %>
+</div>

@@ -1,0 +1,18 @@
+<div class="tweets-index">
+  <div class="postForm">
+    <%= form_for @tweet do |f| %>
+      <%= f.text_area :content, rows: 3, placeholder: "140字以内で投稿してください" %>
+      <%= f.submit "投稿", class: "btn btn-default" %>
+    <% end %>
+  </div>
+  <div class="tweetList">
+    <% if @tweets.length == 0 %>
+      ツイートはありません
+    <% else %>
+      <% @tweets.each do |tweet| %>
+        <%= render 'tweets/eachTweet', tweet: tweet %>
+      <% end %>
+      <%= paginate @tweets %>
+    <% end %>
+  </div>
+</div>

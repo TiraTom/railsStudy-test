@@ -1,0 +1,23 @@
+<% if @tweet.user_id != current_user.id %>
+  <div class="tweets-show">
+      <%= render 'tweets/eachTweet', tweet: @tweet %>
+  </div>
+<% else %>
+  <div class="tweets-edit">
+    <div class="messages">
+      <% if flash %>
+        <% flash.each do |message| %>
+          <%= message %>
+        <% end %>
+      <% end %>
+    </div>
+    <%= form_for @tweet, url: {action: :update} do |f| %>
+    <%= f.text_area :content, class: "form-control" %>
+    <%= f.submit '投稿', class: "btn btn-default" %>
+    <% end %>
+    <div class="tweets-delete">
+      <%= link_to '削除', tweet_path, method: :delete %>
+    </div>
+  </div>
+<% end %>
+

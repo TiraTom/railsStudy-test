@@ -1,0 +1,26 @@
+<div class="tweets-eachTweet clearfix">
+  <div class="userImage">
+    <%= link_to user_path(tweet.user_id) do %>
+      <% if tweet.user.image.nil? %>
+        <p>NO IMAGE</p>
+      <% else %>
+        <%= image_tag tweet.user.image, width: "70px", height:"80px" %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="tweetInfo">
+    <span>
+      <%= link_to user_path(tweet.user_id) do %>
+      <%= tweet.user.name %>
+      <% end %>
+    </span>
+    <span>
+      <%= link_to tweet_path(tweet.id) do %>
+        <%= tweet.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+      <% end %>
+    </span>
+  </div>
+  <div class="TweetContent">
+    <%= tweet.content %>
+  </div>
+</div>

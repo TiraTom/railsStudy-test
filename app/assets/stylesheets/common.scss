@@ -1,0 +1,21 @@
+.header {
+  .notice {
+    color :blue;
+  } 
+  span {
+    margin: 5px 2px 5px 2px;
+  }
+}
+
+.container {
+  .alert {
+    color: red;
+  }
+  #error_explanation {
+    color: red;
+  }
+  .userImage {
+    height: 70px;
+    width: 50px;
+  }
+}
