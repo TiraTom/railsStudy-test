@@ -10,14 +10,12 @@ class TweetsController < ApplicationController
     tweet.attributes = input_parameter
     tweet.user_id = current_user.id
     if tweet.invalid?
-      flash.now[:alert] = I18n.t('tweet.save_fail')
-      @tweet = Tweet.new
-      render :index
+      flash[:alert] = I18n.t('tweet.save_fail')
     else
       tweet.save!
       flash[:notice] = I18n.t('tweet.save_success')
-      redirect_to root_path
     end
+    redirect_to root_path
   end
   
   def show 

@@ -1,8 +1,17 @@
 <div class="tweets-index">
-  <div class="postForm">
+  <div class="alert">
+    <% if @tweet.errors.any? %>
+      <% @tweet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    <% end %>
+    <%= alert %>
+  </div>
+
+  <div class="postForm clearfix">
     <%= form_for @tweet do |f| %>
       <%= f.text_area :content, rows: 3, placeholder: "140字以内で投稿してください" %>
-      <%= f.submit "投稿", class: "btn btn-default" %>
+      <%= f.submit "投稿", class: "btn btn-default pull-right" %>
     <% end %>
   </div>
   <div class="tweetList">

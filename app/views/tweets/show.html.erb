@@ -13,10 +13,11 @@
     </div>
     <%= form_for @tweet, url: {action: :update} do |f| %>
     <%= f.text_area :content, class: "form-control" %>
-    <%= f.submit '投稿', class: "btn btn-default" %>
+    <%= f.submit '編集', class: "btn btn-default" %>
     <% end %>
-    <div class="tweets-delete">
+    <div>
       <%= link_to '削除', tweet_path, method: :delete %>
+      <%= link_to '戻る', root_path %>
     </div>
   </div>
 <% end %>

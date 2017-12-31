@@ -9,7 +9,7 @@ ja:
             password: 'パスワード'
             password_confirmation: 'パスワード（確認）'
             image: 'プロフィール画像'
-            profile: '自己紹介'
+            profile: 'プロフィール'
             remember_me: 'サインインを記憶する'
             agreement: '「規約に同意する」にチェック'
             current_password: '現在のパスワード'

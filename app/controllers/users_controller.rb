@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     tweets = Tweet.where(user_id: params[:id])
-    @tweets = tweets.page(params[:page])
+    @tweets = tweets.page(params[:page]).per(10).order("created_at DESC")
   end
   
 end

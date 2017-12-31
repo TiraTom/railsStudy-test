@@ -2,11 +2,50 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.tweets-index {
+  .postForm {
+    textarea {
+      width: 100%;
+    }
+  }
+}
 
 .tweets-eachTweet {
+  margin: 5px 0px 5px 0px;
+  padding: 5px;
+  border: 1px solid black;
+  
   .userImage {
-    background-color: gray;
+    margin-right: 5px;
     width: 70px;
     height: 80px;
+    background-color: gray;
+    .userImage_small {
+      width: 70px;
+      height: 80px;
+    }
+  }
+  
+  .tweetInfo {
+    vertical-align: center;
+    .userName {
+       text-decoration: underline;
+    }
+    .tweet-created_at {
+       text-decoration: underline;
+    }
+  }
+  
+  .tweetContent {
+    margin-left: 75px;
+  }
+}
+
+.tweets-show {
+  .tweetInfo {
+    .userName {
+      pointer-events: none;
+      color: black;
+    }
   }
 }

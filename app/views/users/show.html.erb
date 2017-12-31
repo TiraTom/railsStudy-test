@@ -1,21 +1,22 @@
 <div class="users-show">
-  <div class="userInfo">
-    <div class="userImage">
+  <div class="userInfo clearfix">
+    <div class="userImage pull-left">
       <%= link_to user_path(@user.id) do %>
         <% if @user.image.nil? %>
           NO IMAGE
         <% else %>
-          <%= image_tag @user.image, width: "140px", height:"160px" %>
+          <%= image_tag @user.image, class: "userImage_big" %>
         <% end %>
       <% end %>
     </div>
     <span>
-      <%= @user.name %>
+      @<%= @user.name %>
     </span>
     <span class="lastLogin">
       最終ログイン日：<%= current_user.current_sign_in_at.strftime("%Y-%m-%d %H:%M:%S") %>
     </span>
     <p>
+      プロフィール<br />
       <%= @user.profile %>
     </p>
   </div>
@@ -29,4 +30,5 @@
       <%= paginate @tweets %>
     <% end %>
   </div>
+  <%= link_to '戻る', :back %>
 </div>
