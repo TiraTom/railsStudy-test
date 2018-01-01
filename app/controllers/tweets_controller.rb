@@ -6,16 +6,17 @@ class TweetsController < ApplicationController
   end
   
   def create
-    tweet = Tweet.new
-    tweet.attributes = input_parameter
-    tweet.user_id = current_user.id
-    if tweet.invalid?
-      flash[:alert] = I18n.t('tweet.save_fail')
+    @tweet = Tweet.new
+    @tweet.attributes = input_parameter
+    @tweet.user_id = current_user.id
+    if @tweet.invalid?
+      flash.now[:alert] = @tweet.errors.full_messages
+      render :index
     else
-      tweet.save!
+      @tweet.save!
       flash[:notice] = I18n.t('tweet.save_success')
+      redirect_to root_path
     end
-    redirect_to root_path
   end
   
   def show 
@@ -23,17 +24,16 @@ class TweetsController < ApplicationController
   end
   
   def update
-    tweet = Tweet.find(params[:id])
-    tweet.attributes = input_parameter
-    if tweet.invalid?
+    @tweet = Tweet.find(params[:id])
+    @tweet.attributes = input_parameter
+    if @tweet.invalid?
       flash.now[:alert] = @tweet.errors.full_messages
       @tweet.attributes = input_parameter
-      render :show
     else
-      tweet.save!
+      @tweet.save!
       flash.now[:notice] = I18n.t('tweet.update_success')
-      redirect_to tweet_path(params[:id])
     end
+    render :show
   end
   
   def destroy

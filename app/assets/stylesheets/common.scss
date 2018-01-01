@@ -35,6 +35,7 @@
 }
 
 .container {
+  min-width: 100%;
   .alert {
     color: red;
   }
@@ -44,5 +45,8 @@
   .userImage {
     height: 70px;
     width: 50px;
+  }
+  .pagination {
+    margin: 0 auto;
   }
 }

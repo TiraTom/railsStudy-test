@@ -6,6 +6,7 @@
   .postForm {
     textarea {
       width: 100%;
+      margin-bottom: 5px;
     }
   }
 }
@@ -47,5 +48,11 @@
       pointer-events: none;
       color: black;
     }
+  }
+}
+
+.tweets-edit {
+  .btn {
+    margin-top: 5px;
   }
 }

@@ -38,7 +38,13 @@
       <%= notice %>
     </div>
     <div class="container">
-      <%= yield %>
+      <div class="row">
+        <div class="col-md-2 col-sm-0"></div>
+        <div class="col-md-8 col-sm-12">
+          <%= yield %>
+        </div>
+        <div class="col-md-2 col-sm-0"></div>
+      </div>
     </div>
   </div>
 </body>

@@ -8,8 +8,9 @@ class User < ActiveRecord::Base
   
   has_many :tweets
   
-  validates :name, length: {in: 1..8}
-  validates :password, presence: true, confirmation: true
+  validates :name, length: {minimum: 8}, uniqueness: true 
+  validates :email, uniqueness: true
+  validates :password, length: {minimum: 6}
   validates :password_confirmation, presence: true
   validates :image, presence: true
   validates :profile, presence: true

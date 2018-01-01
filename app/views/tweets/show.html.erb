@@ -4,18 +4,22 @@
   </div>
 <% else %>
   <div class="tweets-edit">
-    <div class="messages">
-      <% if flash %>
-        <% flash.each do |message| %>
-          <%= message %>
+    <% if alert %>
+      <ul class="alert">
+        <% alert.each do |a| %>
+          <li>
+            <%= a %>
+          </li>
         <% end %>
+      </ul>
+    <% end %>
+    <div class="clearfix">
+      <%= form_for @tweet, url: {action: :update} do |f| %>
+        <%= f.text_area :content, class: "form-control" %>
+        <%= f.submit '投稿', class: "btn btn-default pull-right" %>
       <% end %>
     </div>
-    <%= form_for @tweet, url: {action: :update} do |f| %>
-    <%= f.text_area :content, class: "form-control" %>
-    <%= f.submit '編集', class: "btn btn-default" %>
-    <% end %>
-    <div>
+    <div class="links">
       <%= link_to '削除', tweet_path, method: :delete %>
       <%= link_to '戻る', root_path %>
     </div>
