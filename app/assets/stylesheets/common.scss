@@ -1,11 +1,13 @@
 .header {
   background: lightgray;
   span {
-    margin: 5px 2px 5px 2px;
+    margin: 5px;
     vertical-align: middle;
   }
   .appName {
     font-weight: bold;
+    float: left;
+    margin-left: 10px;
     a {
       color: #5a9ed6;
     }
@@ -13,6 +15,7 @@
   .menu {
     a {
       color: black;
+      margin: 10px
     }
   }
   .notice {
@@ -36,11 +39,22 @@
 
 .container {
   min-width: 100%;
+  .devise-registration-new, .devise-registration-edit, .devise-session-new {
+    text-align: center;
+    table {
+      margin: 0 auto;
+    }
+  }
   .alert {
     color: red;
   }
   #error_explanation {
     color: red;
+  }
+  .devise {
+    h2 {
+      
+    }
   }
   .userImage {
     height: 70px;
@@ -48,5 +62,8 @@
   }
   .pagination {
     margin: 0 auto;
+  }
+  td {
+    padding: 10px;
   }
 }

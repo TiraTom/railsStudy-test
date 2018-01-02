@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="devise-registration-new">
   <h2>新規登録</h2>
   
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -53,13 +53,10 @@
           <%= f.label :profile %>
         </td>
         <td>
-          <%= f.text_area :profile, rows: 3 %>
+          <%= f.text_area :profile, rows: 3, class: "form-control" %>
         </td>
       </tr>
     </table>
-
-    <div class="actions">
-      <%= f.submit "登録する", class: "btn btn-primary" %>
-    </div>
+    <%= f.submit "登録する", class: "btn btn-primary" %>
   <% end %>
 </div>
