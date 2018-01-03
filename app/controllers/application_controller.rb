@@ -12,9 +12,9 @@ class ApplicationController < ActionController::Base
     @tweets = @q.result.page(params[:page]).per(10).order("created_at DESC")
   end
   
-  
   private
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :image, :profile, :agreement])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :image, :profile])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :image, :profile, :password, :password_confirmation, :current_password])
   end
 end

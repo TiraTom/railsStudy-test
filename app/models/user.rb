@@ -9,10 +9,9 @@ class User < ActiveRecord::Base
   has_many :tweets
   
   validates :name, length: {minimum: 8}, uniqueness: true 
-#  validates :name, length: {minimum: 8} 
   validates :email, uniqueness: true
-  validates :password, length: {minimum: 6}
-  validates :password_confirmation, presence: true
+  validates :password, length: {minimum: 6}, on: :create
+  validates :password_confirmation, presence: true, on: :create
   validates :image, presence: true
   validates :profile, presence: true
 

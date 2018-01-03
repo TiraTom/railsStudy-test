@@ -6,8 +6,7 @@ class TweetsController < ApplicationController
   end
   
   def create
-    @tweet = Tweet.new
-    @tweet.attributes = input_parameter
+    @tweet = Tweet.new(input_parameter)
     @tweet.user_id = current_user.id
     if @tweet.invalid?
       flash.now[:alert] = @tweet.errors.full_messages
@@ -41,6 +40,7 @@ class TweetsController < ApplicationController
   def destroy
     tweet = Tweet.find(params[:id])
     tweet.destroy!
+    flash[:notice] = I18n.t('tweet.delete_success')
     redirect_to root_path
   end
   

@@ -220,3 +220,4 @@ ja:
     save_success: "投稿が完了しました"
     save_fail: "投稿に失敗しました"
     update_success: '更新が完了しました'
+    delete_success: '削除が完了しました'
