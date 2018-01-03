@@ -9,15 +9,17 @@
         <% end %>
       <% end %>
     </div>
-    <span>
-      @<%= @user.name %>
-    </span>
-    <span class="lastLogin">
-      最終ログイン日：<%= current_user.current_sign_in_at.strftime("%Y-%m-%d %H:%M:%S") %>
-    </span>
+    <div>
+      <span>
+        @<%= @user.name %>
+      </span>
+      <span class="lastLogin">
+        最終ログイン日：<%= current_user.current_sign_in_at.strftime("%Y-%m-%d %H:%M:%S") %><br />
+      </span>
+    </div>
     <p>
       プロフィール<br />
-      <%= @user.profile %>
+      <%= simple_format(h(@user.profile)) %>
     </p>
   </div>
   <div class="tweetInfo">

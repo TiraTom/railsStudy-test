@@ -10,6 +10,7 @@
     margin-left: 10px;
     a {
       color: #5a9ed6;
+      font-size: large;
     }
   }
   .menu {
@@ -39,6 +40,24 @@
 
 .container {
   min-width: 100%;
+  ul {
+    list-style: none;
+  }
+  div.pagination {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  div.links {
+    text-align: center;
+  }
+  td {
+    padding: 10px;
+  }
+  td:first-child {
+    text-align: right;
+  }
+
   .devise-registration-new, .devise-registration-edit, .devise-session-new {
     text-align: center;
     table {
@@ -59,11 +78,5 @@
   .userImage {
     height: 70px;
     width: 50px;
-  }
-  .pagination {
-    margin: 0 auto;
-  }
-  td {
-    padding: 10px;
   }
 }

@@ -1,11 +1,7 @@
 <div class="tweets-eachTweet clearfix">
   <div class="userImage pull-left">
     <%= link_to user_path(tweet.user_id) do %>
-      <% if tweet.user.image.nil? %>
-        <p>NO IMAGE</p>
-      <% else %>
-        <%= image_tag tweet.user.image, class: "userImage_small" %>
-      <% end %>
+      <%= image_tag tweet.user.image, class: "userImage_small" %>
     <% end %>
   </div>
   <div class="tweetInfo">

@@ -3,16 +3,17 @@ ja:
   activerecord:
     attributes:
         tweet:
+          content: 'ツイート内容'
         user:
-            name: 'ユーザーネーム'
-            email: 'メールアドレス'
-            password: 'パスワード'
-            password_confirmation: 'パスワード（確認）'
-            image: 'プロフィール画像'
-            profile: 'プロフィール'
-            remember_me: 'サインインを記憶する'
-            agreement: '「規約に同意する」にチェック'
-            current_password: '現在のパスワード'
+          name: 'ユーザーネーム'
+          email: 'メールアドレス'
+          password: 'パスワード'
+          password_confirmation: 'パスワード（確認）'
+          image: 'プロフィール画像'
+          profile: 'プロフィール'
+          remember_me: 'サインインを記憶する'
+          agreement: '「規約に同意する」にチェック'
+          current_password: '現在のパスワード'
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

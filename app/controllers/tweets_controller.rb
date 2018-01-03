@@ -21,6 +21,8 @@ class TweetsController < ApplicationController
   
   def show 
     @tweet = Tweet.find(params[:id])
+#    @reply_new = Tweet.new 
+#    @reply = Tweet.where(reply_tweet_id: params[:id]).order("created_at DESC")
   end
   
   def update
@@ -42,9 +44,28 @@ class TweetsController < ApplicationController
     redirect_to root_path
   end
   
+#  def reply
+#    byebug
+#    tweet = Tweet.new(reply_input_parameter)
+#    tweet_id = tweet.reply_tweet_id
+#    if tweet.invalid?
+#      flash.now[:alert] = @tweet.errors.full_messages
+#      @tweet.attributes = input_parameter
+#      render :show
+#    else
+#      @tweet.save!
+#      flash.now[:notice] = I18n.t('tweet.update_success')
+#      redirect_to tweet_path(tweet_id)
+#    end
+#  end
+  
   private 
   def input_parameter
     params.require(:tweet).permit(:content)
   end
+  
+#  def reply_input_parameter
+#    params.require(:tweet).permit(:content, :reply_tweet_id)
+#  end
   
 end

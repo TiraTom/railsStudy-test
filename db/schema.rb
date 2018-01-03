@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171231005642) do
+ActiveRecord::Schema.define(version: 20180103073015) do
 
   create_table "tweets", force: :cascade do |t|
     t.integer  "reply_tweet_id"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20171231005642) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                                null: false
-    t.string   "image"
-    t.text     "profile"
+    t.string   "image",                               null: false
+    t.text     "profile",                             null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
